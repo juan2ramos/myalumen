@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 
-    <title>@section('title') Entre Lagos @show</title>
+    <title>@section('title') Mike y Angora @show</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1"/>
 
     <!-- Style -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link href="{{ url('css/normalize.css') }}" rel="stylesheet">
     <link href="{{ url('css/style.css') }}" rel="stylesheet">
 
@@ -21,7 +22,6 @@
 
 </head>
 <body>
-
 @yield('content')
 </body>
 

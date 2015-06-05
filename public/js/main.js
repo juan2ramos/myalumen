@@ -1,4 +1,3 @@
-
 $(function () {
     var $gallery = $('#gallery');
     var request = $.ajax({
@@ -14,60 +13,73 @@ $(function () {
     request.done(function (msg) {
         console.log(msg.data);
         var html = "", cont = 0, imageSize = $(document).width() / 5, topImg = 0, leftImg = 0;
+        $(".gallery").css('height', imageSize * 5);
 
         jQuery.each(msg.data, function (i, val) {
 
             if (cont == 0) {
-                per = '40%';
-                cont ++;
+                per = 40;
+                cont++;
             }
-            if(cont > 1 && cont <= 4) {
-                per = '20%';
+            if (cont > 1 && cont <= 4) {
+                per = 20;
                 topImg = 0;
-                leftImg = imageSize * cont ;
+                leftImg = imageSize * cont;
             }
-            if(cont > 4 && cont <= 7) {
-                per = '20%';
-                topImg = imageSize ;
-                leftImg = imageSize * (cont - 3) ;
+            if (cont > 4 && cont <= 7) {
+                per = 20;
+                topImg = imageSize;
+                leftImg = imageSize * (cont - 3);
 
             }
-            if(cont > 7 && cont <= 9) {
-                per = '20%';
+            if (cont > 7 && cont <= 9) {
+                per = 20;
                 topImg = imageSize * 2;
-                leftImg = imageSize * (cont % 8) ;
+                leftImg = imageSize * (cont % 8);
 
             }
-            if(cont > 9 && cont <= 11) {
-                per = '20%';
+            if (cont > 9 && cont <= 11) {
+                per = 20;
                 topImg = imageSize * 3;
-                leftImg = imageSize * (cont % 10) ;
+                leftImg = imageSize * (cont % 10);
             }
             if (cont == 12) {
-                per = '40%';
+                per = 40;
                 topImg = imageSize * 2;
-                leftImg = imageSize * 2 ;
+                leftImg = imageSize * 2;
 
             }
 
-            if(cont == 13) {
-                per = '20%';
+            if (cont == 13) {
+                per = 20;
                 topImg = imageSize * 2;
                 leftImg = imageSize * 4;
             }
-            if(cont == 14) {
-                per = '20%';
+            if (cont == 14) {
+                per = 20;
                 topImg = imageSize * 3;
                 leftImg = imageSize * 4;
             }
 
-            if(cont > 14 ) {
-                per = '20%';
+            if (cont > 14) {
+                per = 20;
                 topImg = imageSize * 4;
-                leftImg = imageSize * (cont % 15) ;
+                leftImg = imageSize * (cont % 15);
             }
-
-            html = "<img  src ='" + val.images.standard_resolution.url + "' style=' position:absolute; top : " + topImg + "px ;left : " + leftImg + "px; width:" + per + "' " + "/>";
+            imageSizeLink = (per === 20)?imageSize:imageSize * 2;
+            html = "<figure  style=' position:absolute; top : "
+                + topImg
+                + "px ;left : " + leftImg
+                + "px; width:" + per + "%'> <img  src ='" + val.images.standard_resolution.url + "'/>"
+                + "<a  href=' "
+                + val.link + "' "
+                + "style=' display:block; text-align:center;padding-top:4px;"
+                + "margin-top: -" +  16 +"px;"
+                + "margin-left: -" + (imageSizeLink*.7)/2  +"px;"
+                + "width : " + 70  + "%;"
+                + "height : " + 32  + "px;"
+                + " position:absolute; top :  50% ;left : 50% ' target='_blank' > Instagram </a>"
+                + " </figure>";
             $gallery.append(html);
             cont++;
             console.log(i)
