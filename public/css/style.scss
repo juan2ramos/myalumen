@@ -1,3 +1,4 @@
+
 @mixin abs-pos($top: auto, $right: auto, $bottom: auto, $left: auto) {
   bottom: $bottom;
   left: $left;
@@ -104,4 +105,5 @@ section{
 }
 .gallery{
   position: relative;
+
 }

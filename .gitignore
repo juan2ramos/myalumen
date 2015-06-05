@@ -1,4 +1,9 @@
 /vendor
 .env
+<<<<<<< HEAD
 node_modules
 .idea
+=======
+.idea
+node_modules
+>>>>>>> 616ef03dd2311a3358a01cf973f7d0e3efa9a467

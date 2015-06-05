@@ -1,3 +1,4 @@
+
 $(function () {
     var $gallery = $('#gallery');
     var request = $.ajax({
