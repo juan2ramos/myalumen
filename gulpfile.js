@@ -8,10 +8,10 @@ gulp.task('sass', function() {
     return gulp.src('public/css/style.scss')
         .pipe(sass())
         .pipe(minifycss())
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('public/css'));
 });
 gulp.task('watch', function () {
     gulp.watch('public/css/style.scss', ['sass']);
 });
-
+dd
 gulp.task('default', ['sass', 'watch']);
