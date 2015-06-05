@@ -1,0 +1,107 @@
+@mixin abs-pos($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+  right: $right;
+  top: $top;
+}
+
+@mixin margin() {
+  margin: 0;
+  padding: 0
+}
+
+@mixin breakpoint($point) {
+  $small: "(min-width: 30rem)";
+  $medium: "(min-width: 46rem)";
+  $large: "(min-width: 65rem)";
+
+  @if $point == large {
+    @media #{$large} {
+      @content;
+    }
+  } @else if $point == medium {
+    @media #{$medium} {
+      @content;
+    }
+  } @else if $point == small {
+    @media #{$small}  {
+      @content;
+    }
+  }
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+body, html {
+  margin: 0;
+}
+
+body {
+  background: #000000;
+  font-family: 'Century Gothic';
+  font-size: 16px;
+}
+
+header{
+  position: relative;
+}
+
+.iframe_parent {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.hands{
+  background: url(../img/concierto-rsm.png) repeat-x;
+  background-size: 500px;
+  position: absolute;
+  height: 195px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 6;
+}
+
+.iframe_parent iframe, .iframe_parentobject, .iframe_parent embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+section{
+  height: 450px;
+}
+/* gallery */
+
+.gallery{
+  display: flex;
+}
+.gallery{
+  position: relative;
+}
