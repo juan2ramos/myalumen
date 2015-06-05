@@ -1,4 +1,6 @@
+var eventType = ((document.ontouchstart !== null) ? 'click' : 'touchstart');
 $(function () {
+
     var $gallery = $('#gallery');
     var request = $.ajax({
         url: 'https://api.instagram.com/v1/users/410690219/media/recent?access_token=410690219.467ede5.f096734491424fb78daf3c0caa0d8d08&count=19',
@@ -88,6 +90,24 @@ $(function () {
 })
 ;
 
+function anchorScroll(event) {
+    var id     = $(this).attr("href")
+        ;
+    if(id == "#contacto"){
+        $('.contact-content').addClass('show')
+    }else{
+        var target = $(id).offset().top;
+        $('html, body').animate({
+            scrollTop: target -50
+        }, 500);
+
+    }
+
+    event.preventDefault();
+}
+$('.scrollto').on(eventType, function() {
+    anchorScroll.call(this, event);
+});
 $(window).load(function () {
     $('.flexslider').flexslider({
         animation: "slide",
